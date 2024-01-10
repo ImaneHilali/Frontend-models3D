@@ -1,0 +1,23 @@
+<div class="card mb-4">
+  <div class="card-img-container position-relative">
+    <img [src]="uploadedImage.image_link" alt="Uploaded Image">
+
+    <div class="position-absolute bottom-0 end-0 p-1" style="z-index: 2;">
+      <!-- Add a link to navigate to calculation results -->
+      <a [routerLink]="['/calculation-results', uploadedImage.id]" class="btn btn-primary btn-sm"         
+      (click)="onShowResultsClick(uploadedImage.id)">
+        <i class="fas fa-info-circle"></i>  
+      </a>
+
+      <a [routerLink]="['/similarity-results', uploadedImage.id]" class="btn btn-success btn-sm"         
+      (click)="onSendSimilarityData(uploadedImage.id)">
+        <i class="fas fa-search"></i>  
+      </a>
+      
+      <!-- Add a button to delete the image -->
+      <button class="btn btn-danger btn-sm" (click)="onDeleteImageClick(uploadedImage.id)" >
+        <i class="fas fa-trash"></i>  
+      </button>
+    </div>
+  </div>
+</div>

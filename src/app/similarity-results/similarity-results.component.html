@@ -1,0 +1,31 @@
+<div class="container my-4">
+    <h2 class="text-center mb-4 font-weight-bold" style="color: #5992d0; font-weight: 800; font-size: 1.6rem;"> Selected Image :</h2>
+    <div *ngIf="uploadedImage" class="text-center">
+      <div class="card mx-auto" style="width: 16rem;">
+        <div class="d-flex justify-content-center">
+          <img [src]="uploadedImage.image_link" alt="Uploaded Image" class="card-img-top">
+        </div>
+        <div class="card-body">
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4 d-flex justify-content-center align-items-center">
+      <input type="number" class="form-control w-25" placeholder="Number of Similar Results" [(ngModel)]="numResults">
+      <button class="btn btn-primary ml-2" (click)="applyNumResultsFilter()">Show</button>
+    </div>
+    <h2 class="text-center mt-4 font-weight-bold" style="color: #5992d0; font-weight: 800; font-size: 1.6rem;"> Comparison Results :</h2>
+    <div *ngIf="results.length > 0" class="row">
+      <div *ngFor="let result of results" class="col-2 px-2 my-2">
+        <div class="card">
+          <img [src]="result.image_link" alt="Image" class="card-img-top">
+          <div class="card-body">
+            <p class="card-text">Similarity: {{ result.similarity }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="results.length === 0" class="text-center mt-4">
+      <p>No results available.</p>
+    </div>
+  </div>
+  

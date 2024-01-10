@@ -1,0 +1,24 @@
+<div class="container my-4">
+  <h1 class="display-4 mb-4 font-weight-bold" style="color: #5992d0; font-weight: 800; font-size: 1.7rem;">Image Upload</h1> 
+  <div class="mb-3">
+    <input type="file" class="form-control" (change)="onFileChange($event)" multiple>
+  </div>
+  <button class="btn btn-primary custom-smaller-btn btn-block" (click)="uploadImages()">Upload Image</button>
+
+  <hr class="my-5" style="border-color: #ddd; border-width: 5px;">
+  <div *ngIf="uploadedImages && uploadedImages.length > 0" class="mt-4">
+    <h1 class="display-5 mb-3 mb-4 font-weight-bold " style="color: #28a745; font-weight: 800; font-size: 1.7rem;">Uploaded Images</h1>
+    <div class="row">
+      <ng-container *ngFor="let image of uploadedImages">
+        <div class="col-md-2 px-2">
+          <app-image-card [uploadedImage]="image"
+            (showResultsClick)="onShowResultsClick(image.id)"
+            (deleteImageClick)="onDeleteImageClick(image.id)"
+            (sendSimilarityDataClick)="onSendSimilarityDataClick(image.id)"
+            >
+          </app-image-card>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UploadService } from './services/upload.service';
+import { UploadResponse } from './models/upload.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'models3d';
+   
+ 
 }

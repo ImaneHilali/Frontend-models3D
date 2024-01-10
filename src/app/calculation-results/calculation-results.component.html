@@ -1,0 +1,28 @@
+<!-- calculation-results.component.html -->
+<div *ngIf="calculationResults" class="mx-3 text-center">
+  <h2 class="mb-4 mt-4">The Results of the Calculation:</h2>
+
+  <!-- Display Axes Principaux d'Inertie -->
+  <div *ngFor="let axis of calculationResults['Axes Principaux d\'Inertie']; let i = index" class="mb-3">
+    <h3 class="mb-2 text-primary"> Values of Axis {{ i + 1 }} <i class="fas fa-chart-bar"></i>:</h3>
+    <div class="d-inline-block">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let value of axis">{{ value }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Display Distance Moyenne -->
+  <h3 class="mt-3 text-success"> Distance Moyenne <i class="fas fa-arrows-alt-h"></i>: </h3>
+  <p class="mt-3 d-inline-block"> {{ calculationResults['Distance Moyenne'] }}</p>
+
+  <!-- Display Moments -->
+  <h3 class="mt-3 text-warning"> Moments <i class="fas fa-star"></i>:</h3>
+  <ul class="list-group d-inline-block">
+    <li class="list-group-item" *ngFor="let moment of calculationResults.Moments">{{ moment }}</li>
+  </ul>
+
+  <!-- Display Variance de la Distance -->
+  <h3 class="mt-3 text-danger"> Variance de la Distance <i class="fas fa-chart-pie"></i>:</h3>
+  <p class="mt-3 d-inline-block"> {{ calculationResults['Variance de la Distance'] }}</p>
+</div>
